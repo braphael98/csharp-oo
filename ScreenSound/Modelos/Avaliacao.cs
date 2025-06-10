@@ -8,4 +8,10 @@ internal class Avaliacao
     }
 
     public int Nota { get;}
+
+    public static Avaliacao Parse(string texto)//metodo estatico, pq é direto
+    {
+        int nota = int.Parse(texto);
+        return new Avaliacao(nota);
+    }
 }

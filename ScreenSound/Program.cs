@@ -1,4 +1,5 @@
-﻿using ScreenSound.Modelos;
+﻿using System.Xml;
+using ScreenSound.Modelos;
 
 Banda beatles = new Banda("Beatles");
 Banda ira = new Banda("Ira!");
@@ -142,9 +143,11 @@ void AvaliarUmaBanda()
     {
         Banda banda = bandasRegistradas[nomeDaBanda];//puxar a chave da banda no dicionario.
         Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
-        int nota = int.Parse(Console.ReadLine()!);
-        banda.AdicionarNota(new Avaliacao(nota);
-        Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
+        
+        Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);//criando objeto nota para o contexto atual
+        banda.AdicionarNota(nota);//adicionando nota no metodo da banda
+
+        Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para a banda {nomeDaBanda}");
         Thread.Sleep(2000);
         Console.Clear();
         ExibirOpcoesDoMenu();
