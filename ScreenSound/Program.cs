@@ -70,7 +70,9 @@ internal class Program0
 
         void RegistrarAlbum()
         {
+
             Console.Clear();
+            Console.WriteLine($"Total de Albuns Registrados na aplicação!: {Album.ContadorDeObjetos}");
             ExibirTituloDaOpcao("Registro de álbuns");
             Console.Write("Digite a banda cujo álbum deseja registrar: ");
             string nomeDaBanda = Console.ReadLine()!;

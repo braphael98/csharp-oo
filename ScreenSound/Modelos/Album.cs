@@ -1,11 +1,17 @@
-﻿namespace ScreenSound.Modelos;
+﻿using System.Diagnostics.Contracts;
+
+namespace ScreenSound.Modelos;
+
 internal class Album
 {
+    public static int ContadorDeObjetos = 0;
     private List<Musica> musicas = new List<Musica>();
+
 
     public Album(string nome)
     {
         Nome = nome;
+        ContadorDeObjetos++;
     }
 
     public string Nome { get; }
@@ -26,4 +32,5 @@ internal class Album
         }
         Console.WriteLine($"\nPara ouvir este álbum inteiro você precisa de {DuracaoTotal}");
     }
+   
 }
