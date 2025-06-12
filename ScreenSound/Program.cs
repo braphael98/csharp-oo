@@ -17,9 +17,10 @@ internal class Program0
         Dictionary<int, Menu> opcoes = new(); //dicionario a fim de remover o switch
         opcoes.Add(1, new MenuRegistrarBanda());
         opcoes.Add(2, new MenuRegistrarAlbum());
-        opcoes.Add(3, new MenuAvaliarBanda());
+        opcoes.Add(3, new MenuBandasRegistradas());
         opcoes.Add(4, new MenuAvaliarBanda());
-        opcoes.Add(5, new MenuExibirDetalhes());
+        opcoes.Add(5, new MenuAvaliarAlbum());
+        opcoes.Add(6, new MenuExibirDetalhes());
         opcoes.Add(-1, new MenuSair());
 
         void ExibirLogo()
@@ -44,6 +45,7 @@ internal class Program0
             Console.WriteLine("Digite 3 para mostrar todas as bandas");
             Console.WriteLine("Digite 4 para avaliar uma banda");
             Console.WriteLine("Digite 5 para exibir os detalhes de uma banda");
+            Console.WriteLine("Digite 6 para avaliar um Alum de uma banda!");
             Console.WriteLine("Digite -1 para sair");
 
             Console.Write("\nDigite a sua opção: ");

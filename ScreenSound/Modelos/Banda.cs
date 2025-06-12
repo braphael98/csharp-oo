@@ -1,6 +1,6 @@
 ﻿namespace ScreenSound.Modelos;
 
-internal class Banda
+internal class Banda : IAvaliavel // implementa interface, não é herança !
 {
     private List<Album> albuns = new List<Album>();
     private List<Avaliacao> notas = new List<Avaliacao>();
