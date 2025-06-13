@@ -13,28 +13,35 @@ internal class MenuAvaliarAlbum : Menu
         if (bandasRegistradas.ContainsKey(nomeDaBanda))
         {
             Banda banda = bandasRegistradas[nomeDaBanda];
-            Console.Write("Agora digite o título do álbum: ");
-            string tituloAlbum = Console.ReadLine()!;
-            if (banda.Albuns.Any(a => a.Nome.Equals(tituloAlbum)))
+            if (banda.Albuns.Count > 0)
             {
-                Album album = banda.Albuns.First(a => a.Nome.Equals(tituloAlbum));
-                Console.Write($"Qual a nota que o Album {tituloAlbum} merece: ");
-                Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);//criando objeto nota para o contexto atual
-                album.AdicionarNota(nota);//adicionando nota no metodo da banda
+                foreach (Album album in banda.Albuns)
+                {
+                    Console.WriteLine($"{album.Nome}");
+                }
+            }
+                Console.Write("Agora digite o título do álbum: ");
+                string tituloAlbum = Console.ReadLine()!;
+                if (banda.Albuns.Any(a => a.Nome.Equals(tituloAlbum)))
+                {
+                    Album album = banda.Albuns.First(a => a.Nome.Equals(tituloAlbum));
+                    Console.Write($"Qual a nota que o Album {tituloAlbum} merece: ");
+                    Avaliacao nota = Avaliacao.Parse(Console.ReadLine()!);//criando objeto nota para o contexto atual
+                    album.AdicionarNota(nota);//adicionando nota no metodo da banda
 
-                Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para o album {tituloAlbum}");
-                Thread.Sleep(2000);
-                Console.Clear();
+                    Console.WriteLine($"\nA nota {nota.Nota} foi registrada com sucesso para o album {tituloAlbum}");
+                    Thread.Sleep(2000);
+                    Console.Clear();
+
+                }
+                else
+                {
+                    Console.WriteLine($"\nAlbum {tituloAlbum} não foi encontrado!");
+                    Console.WriteLine("Digite uma tecla para voltar ao menu principal");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
 
             }
-            else
-            {
-            Console.WriteLine($"\nAlbum {tituloAlbum} não foi encontrado!");
-            Console.WriteLine("Digite uma tecla para voltar ao menu principal");
-            Console.ReadKey();
-            Console.Clear();
-            }
-
         }
     }
-}

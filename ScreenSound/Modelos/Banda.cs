@@ -4,6 +4,7 @@ internal class Banda : IAvaliavel // implementa interface, não é herança !
 {
     private List<Album> albuns = new List<Album>();
     private List<Avaliacao> notas = new List<Avaliacao>();
+    public IEnumerable<Album> Albums => albuns; //Isso é como um cadeado para listas, permite somente leitura
 
     public Banda(string nome)
     {
@@ -21,7 +22,6 @@ internal class Banda : IAvaliavel // implementa interface, não é herança !
 
         }
     }
-    public List<Album> Albuns => albuns;
 
     public void AdicionarAlbum(Album album)
     {
