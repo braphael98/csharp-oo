@@ -22,7 +22,7 @@ internal class Banda : IAvaliavel // implementa interface, não é herança !
 
         }
     }
-
+    public List<Album> Albuns => albuns;
     public void AdicionarAlbum(Album album)
     {
         albuns.Add(album);
@@ -32,6 +32,7 @@ internal class Banda : IAvaliavel // implementa interface, não é herança !
     {
         notas.Add(nota);
     }
+
 
     public void ExibirDiscografia()
     {
